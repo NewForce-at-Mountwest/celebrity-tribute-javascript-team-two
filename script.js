@@ -32,24 +32,24 @@ const linData = {
   //   }
 
   // ],
-  personalLife: {
-    birthDate: "January 16, 1980",
-    birthLocation: "New York City",
-    cityOfResidence: "New York City",
-    nationality: "Puerto Rican, American",
-    family: {
-      spouse: "Vanessa Nada",
-      kids: ["Sebastian Miranda",
-        "Francisco Miranda"
-      ],
-      parents: ["Luis A. Miranda, Jr.",
-        "Luz Towns-Miranda"],
-      pets: ["Tobillo", "Toby"]
-    }
-  },
+  // personalLife: {
+  //   birthDate: "January 16, 1980",
+  //   birthLocation: "New York City",
+  //   cityOfResidence: "New York City",
+  //   nationality: "Puerto Rican, American",
+  //   family: {
+  //     spouse: "Vanessa Nada",
+  //     kids: ["Sebastian Miranda",
+  //       "Francisco Miranda"
+  //     ],
+  //     parents: ["Luis A. Miranda, Jr.",
+  //       "Luz Towns-Miranda"],
+  //     pets: ["Tobillo", "Toby"]
+  //   }
+  // },
 
     career: {
-      shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
+      shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
       MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
       notableRoles: ["Usnavi", "Alexander Hamilton"],
       notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
@@ -57,7 +57,6 @@ const linData = {
     },
 }
 
-    
 //     let musicalsHTMLString = "";
 //     let rolesHTMLString = "";
 //     let songsHTMLString = "";
@@ -101,10 +100,13 @@ for (let i = 0; i < title.length; i++){
  return `<div><h2>${header}</h2><ul>${listString}</ul></div>` 
 }
 
-const musicString = ul_function(linData.career.MusicalsWritten, "Music Written");
+const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
+const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
 const songsString = ul_function(linData.career.notableSongs, "Notable Songs");
-const kidsString = ul_function(linData.personalLife.family.kids, "Children");
-console.log(musicString, songsString, kidsString)
+const awardsString = ul_function(linData.career.awards, "Awards Conferred")
+
+console.log(musicalsString, songsString, songsString, awardsString)
+document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
 
 
 
