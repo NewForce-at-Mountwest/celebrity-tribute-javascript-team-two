@@ -92,7 +92,8 @@ const linData = {
  
   }
  }
-
+    
+    
     let musicalsHTMLString = "";
     let rolesHTMLString = "";
     let songsHTMLString = "";
@@ -126,7 +127,7 @@ document.querySelector("#career").innerHTML = careerHTMLString;
 let htmlString = "";
 
 const ul_function = (title, header, style) => {
-  // return `<ul class ="${style}">${title}</ul>`
+ 
 let listString = "";
 for (let i = 0; i < title.length; i++){
   listString = listString + `<li>${title[i]}</li>`
@@ -135,57 +136,27 @@ for (let i = 0; i < title.length; i++){
 }
  return `<div><h2>${header}</h2><ul>${listString}</ul></div>` 
 }
-
+//career
 const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
 const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
 const songsString = ul_function(linData.career.notableSongs, "Notable Songs");
 const awardsString = ul_function(linData.career.awards, "Awards Conferred")
 
+//personal
+
+const personalKids = ul_function(linData.personalLife.family.kids, "Kids");
+const personalPets = ul_function(linData.personalLife.family.pets, "Pets");
+const personalParents = ul_function(linData.personalLife.family.parents, "Parents");
+
+let shortIntroHTML = `Lin Manuel Miranda was born on ${linData.personalLife.birthDate} in ${linData.personalLife.birthLocation}, NY.  He is also a ${linData.personalLife.nationality}.  He is married to ${linData.personalLife.family.spouse}.`
+
+
+
+
 console.log(musicalsString, songsString, songsString, awardsString)
 document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
 
-
-
-
-//     executiveSummary: {
-//       knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
-//       image: {
-//         photURL: "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000",
-//         caption: "Lin Manuel Miranda Headshot"
-//       },
-//       listOfAliases: ["Lin", "LMM", "Alexander Hamilton"],
-//       countryOfResidence: "United States"
-//     }
-//   }
-//   extrasReport: {
-//     onlineResources: [
-//         {
-//             name: "Wikipedia",
-//             url: "https://en.wikipedia.org/wiki/Lin-Manuel_Miranda"
-//         },
-//         {
-//             name: "Official Website",
-//             url: "http://www.linmanuel.com/"
-//         },
-//         {
-//             name: "Fan Website",
-//             url: "https://linmiranda.com/"
-//         }
-//     ],
-//     placesToViewWork: [
-//         {
-//             name: "Youtube",
-//             url: ""
-//         },
-//         {
-//             name: "Broadway",
-//             url: ""
-//         }
-//     ],
-//     pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
-
-// }
-// }
+document.querySelector("#personal-life").innerHTML = `<div><H2>${shortIntroHTML}</h2>${personalKids}${personalPets}${personalParents}${awardsString}`
 
 
 
