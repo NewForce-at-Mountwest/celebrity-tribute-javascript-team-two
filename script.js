@@ -87,8 +87,6 @@ const linData = {
 
 // document.querySelector("#career").innerHTML = careerHTMLString;
 
-let htmlString = "";
-
 const ul_function = (title, header, style) => {
   // return `<ul class ="${style}">${title}</ul>`
 let listString = "";
@@ -97,7 +95,7 @@ for (let i = 0; i < title.length; i++){
   console.log(listString)
 
 }
- return `<div><h2>${header}</h2><ul>${listString}</ul></div>` 
+ return `<div><h3>${header}</h3><ul>${listString}</ul></div>` 
 }
 
 const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
