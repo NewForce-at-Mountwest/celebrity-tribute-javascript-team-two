@@ -107,7 +107,7 @@ const div_function = (style) => {
 
 let htmlString = "";
 for (let i = 0; i < linData.executiveSummary.knownCollaborations.length; i++){
-  ul_function_test = `${ul_function(linData.executiveSummary.knownCollaborations[i], "")}`
+  ul_function_test = `${ul_function(linData.executiveSummary.knownCollaborations[i], "")}${ul_function(linData.executiveSummary.listOfAliases[i], "") } `
   htmlString += ul_function_test
 }
 document.querySelector("#executive-summary").innerHTML = htmlString
