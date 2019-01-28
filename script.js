@@ -101,9 +101,7 @@ const img_function = (src, alt, style, caption) => {
   return `<img src="${src}"class = ${style} alt="${alt}" <h1>${caption}</h1>`
 }
 
-// const img_function = (caption, alt, style, src) => {
-//   return `<h1>${caption}</h1>, <img src="${src}"class = ${style} alt="${alt}"`
-// }
+
 
 let execString = "";
 for (let i = 0; i < linData.executiveSummary.knownCollaborations.length; i++){
@@ -114,15 +112,6 @@ for (let i = 0; i < linData.executiveSummary.knownCollaborations.length; i++){
 let imgString = "";
 img_function_test = `${img_function(linData.executiveSummary.image.photURL, "picture", "", linData.executiveSummary.image.caption)}`
 execString += img_function_test
-
-// let imgString = "";
-// img_function_test = `${img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "picture", "")}`
-// execString += img_function_test
-
-// console.log(imgString)
-
-
-
 
 
 document.querySelector("#executive-summary").innerHTML = execString;
