@@ -105,28 +105,3 @@ for (let i = 0; i < linData.executiveSummary.knownCollaborations.length; i++){
 document.querySelector("#executive-summary").innerHTML = htmlString
 
 
-const personalHTML = `
-<h3 class="personal">Personal Life</h3>
-    <p class="personal">Lin Manuel was born on ${linData.personalLife.birthDate} in a hospital in ${linData.personalLife.birthLocation}, NY. She currently resides in ${linData.personalLife.birthLocation}, NY.  She is a ${linData.personalLife.nationality}.</p>
-   
-    <h4 class="personal">Family</h5>
-    <h4 class="personal">Spouse: ${linData.personalLife.family.spouse}</h4>
-   
-    <h5 class="personal">Kids</h5>
-    <ul class = "personal">
-        <li>${linData.personalLife.family.kids[0]}</li>
-        <li>${linData.personalLife.family.kids[1]}</li>
-    </ul>
-    
-    <h5 class="personal">Parents</h5>
-    <ul>
-        <li>${linData.personalLife.family.parents[0]}</li>
-        <li>${linData.personalLife.family.parents[1]}</li>
-    </ul>
-    
-    <h5 class="personal">Pets</h5>
-    <ul>
-        <li>${linData.personalLife.family.pets[0]}</li>
-        <li>${linData.personalLife.family.pets[1]}</li>
-    </ul>
-`
