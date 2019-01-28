@@ -30,7 +30,7 @@ const linData = {
       url: "https://www.npr.org/2019/01/08/683284098/lin-manuel-miranda-and-hamilton-partners-save-a-manhattan-theater-bookstore",
       date: "1/8/19"
     }
-
+ 
   ],
   personalLife: {
     birthDate: "January 16, 1980",
@@ -47,7 +47,6 @@ const linData = {
       pets: ["Tobillo", "Toby"]
     }
   },
-
   career: {
     shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
     MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
@@ -56,7 +55,7 @@ const linData = {
     awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
   },
   executiveSummary: {
-    knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
+    knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee Elise Goldsberry", "Phillipa Soo"],
     image: {
       photURL: "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000",
       caption: "Lin Manuel Miranda Headshot"
@@ -90,27 +89,20 @@ const linData = {
           }
       ],
       pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
-
+ 
   }
+ }
+
+const ul_function = (title, style) => {
+  return `<ul class ="${style}">${title}</ul>`
 }
 
-
-// personalLife: {
-//   birthDate: "January 16, 1980",
-//   birthLocation: "New York City",
-//   cityOfResidence: "New York City",
-//   nationality: "Puerto Rican, American",
-//   family: {
-//     spouse: "Vanessa Nada",
-//     kids: ["Sebastian Miranda",
-//       "Francisco Miranda"
-//     ],
-//     parents: ["Luis A. Miranda, Jr.",
-//       "Luz Towns-Miranda"],
-//     pets: ["Tobillo", "Toby"]
-//   }
-
-
+let htmlString = "";
+for (let i = 0; i < linData.executiveSummary.knownCollaborations.length; i++){
+  ul_function_test = `${ul_function(linData.executiveSummary.knownCollaborations[i], "")}`
+  htmlString += ul_function_test
+}
+document.querySelector("#executive-summary").innerHTML = htmlString
 
 
 const personalHTML = `
@@ -138,8 +130,3 @@ const personalHTML = `
         <li>${linData.personalLife.family.pets[1]}</li>
     </ul>
 `
-
-
-
-document.querySelector("#personal-life").innerHTML = personalHTML;
-
