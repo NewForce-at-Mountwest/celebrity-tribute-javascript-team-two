@@ -95,6 +95,36 @@ const linData = {
 
 
 
+    let musicalsHTMLString = "";
+    let rolesHTMLString = "";
+    let songsHTMLString = "";
+    let awardsHTMLString = "";
+
+    for (let i = 0; i < linData.career.MusicalsWritten.length; i++) {
+        musicalsHTMLString = musicalsHTMLString + linData.career.MusicalsWritten[i]
+        console.log(musicalsHTMLString);
+    }
+
+    for (let i = 0; i < linData.career.notableRoles.length; i++) {
+            rolesHTMLString = rolesHTMLString + linData.career.notableRoles[i]
+            console.log(rolesHTMLString);
+    }
+
+    for (let i = 0; i < linData.career.notableSongs.length; i++) {
+            songsHTMLString = songsHTMLString + linData.career.notableSongs[i]
+            console.log(songsHTMLString);
+    }
+
+    for (let i = 0; i < linData.career.awards.length; i++) {
+            awardsHTMLString = awardsHTMLString + linData.career.awards[i]
+            console.log(awardsHTMLString);
+    }
+    
+    const careerHTMLString = `<h2 class="career-intro">${linData.career.shortIntro}</h2> <ul class="career-musicals"${musicalsHTMLString}</ul> <ul class="career-roles">${rolesHTMLString}</ul> <ul class="career-songs">${songsHTMLString}</ul> <ul class="career-awards">${awardsHTMLString}</ul>`
+    console.log (careerHTMLString) 
+
+document.querySelector("#career").innerHTML = careerHTMLString;
+
 
 const ul_function = (title, header, style) => {
 
@@ -122,3 +152,18 @@ const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List 
 document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
 
 
+
+const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
+const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
+const songsString = ul_function(linData.career.notableSongs, "Notable Songs");
+const awardsString = ul_function(linData.career.awards, "Awards Conferred")
+
+console.log(musicalsString, songsString, songsString, awardsString)
+document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
+
+let newsy = ""
+for (let i = 0; i < linData.newsfeed.length; i++){
+    newsy = newsy + `<a href="${linData.newsfeed[i].url}"><li>${linData.newsfeed[i].title}   |   ${linData.newsfeed[i].date}</li>`
+}
+console.log(newsy)
+document.querySelector("#news-feed").innerHTML= newsy
