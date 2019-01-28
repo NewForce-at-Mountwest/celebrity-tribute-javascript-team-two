@@ -55,7 +55,7 @@ const linData = {
     awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
   },
   executiveSummary: {
-    knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
+    knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee Elise Goldsberry", "Phillipa Soo"],
     image: {
       photURL: "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000",
       caption: "Lin Manuel Miranda Headshot"
@@ -92,6 +92,9 @@ const linData = {
 
   }
 }
+
+
+
     let musicalsHTMLString = "";
     let rolesHTMLString = "";
     let songsHTMLString = "";
@@ -122,18 +125,33 @@ const linData = {
 
 document.querySelector("#career").innerHTML = careerHTMLString;
 
-let htmlString = "";
 
 const ul_function = (title, header, style) => {
-  // return `<ul class ="${style}">${title}</ul>`
-let listString = "";
-for (let i = 0; i < title.length; i++){
-  listString = listString + `<li>${title[i]}</li>`
-  console.log(listString)
 
+  let j_listString = "";
+  for (let i = 0; i < title.length; i++){
+  j_listString = j_listString + `<li>${title[i]}</li>`
 }
- return `<div><h2>${header}</h2><ul>${listString}</ul></div>` 
+
+ return `<div><h2>${header}</h2><ul>${j_listString}</ul></div>` 
 }
+
+const img_function = (caption, src, alt, style) => {
+  return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
+}
+
+const h1_function = (h1, style) => {
+  return `<h1>Country of residence: ${h1}</h1>`
+}
+
+const country = h1_function(linData.executiveSummary.countryOfResidence)
+const image = img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "image", "")
+const knownCollabs = ul_function(linData.executiveSummary.knownCollaborations, "Known Collaborations")
+const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List of Aliases");
+
+document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
+
+
 
 const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
 const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
