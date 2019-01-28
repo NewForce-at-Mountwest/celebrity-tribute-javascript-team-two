@@ -93,118 +93,32 @@ const linData = {
   }
 }
 
-//     let musicalsHTMLString = "";
-//     let rolesHTMLString = "";
-//     let songsHTMLString = "";
-//     let awardsHTMLString = "";
-
-//     for (let i = 0; i < linData.career.MusicalsWritten.length; i++) {
-//         musicalsHTMLString = musicalsHTMLString + linData.career.MusicalsWritten[i]
-//         console.log(musicalsHTMLString);
-//     }
-
-//     for (let i = 0; i < linData.career.notableRoles.length; i++) {
-//             rolesHTMLString = rolesHTMLString + linData.career.notableRoles[i]
-//             console.log(rolesHTMLString);
-//     }
-
-//     for (let i = 0; i < linData.career.notableSongs.length; i++) {
-//             songsHTMLString = songsHTMLString + linData.career.notableSongs[i]
-//             console.log(songsHTMLString);
-//     }
-
-//     for (let i = 0; i < linData.career.awards.length; i++) {
-//             awardsHTMLString = awardsHTMLString + linData.career.awards[i]
-//             console.log(awardsHTMLString);
-//     }
-    
-//     const careerHTMLString = `<h2 class="career-intro">${linData.career.shortIntro}</h2> <ul class="career-musicals"${musicalsHTMLString}</ul> <ul class="career-roles">${rolesHTMLString}</ul> <ul class="career-songs">${songsHTMLString}</ul> <ul class="career-awards">${awardsHTMLString}</ul>`
-//     console.log (careerHTMLString) 
-
-// document.querySelector("#career").innerHTML = careerHTMLString;
-
-const img_function = (src, alt, style, caption) => {
-  return `<img src="${src}"class = ${style} alt="${alt}" <h1>${caption}</h1>`
-}
 
 
-
-let execString = "";
-for (let i = 0; i < linData.executiveSummary.knownCollaborations.length; i++){
-  ul_function_test = `${ul_function(linData.executiveSummary.knownCollaborations[i], "")}`
-  execString += ul_function_test
-}
-
-let imgString = "";
-img_function_test = `${img_function(linData.executiveSummary.image.photURL, "picture", "", linData.executiveSummary.image.caption)}`
-execString += img_function_test
-
-
-document.querySelector("#executive-summary").innerHTML = execString;
-let htmlString = "";
 
 const ul_function = (title, header, style) => {
-  // return `<ul class ="${style}">${title}</ul>`
-let listString = "";
-for (let i = 0; i < title.length; i++){
-  listString = listString + `<li>${title[i]}</li>`
-  console.log(listString)
 
-}
- return `<div><h2>${header}</h2><ul>${listString}</ul></div>` 
+  let j_listString = "";
+  for (let i = 0; i < title.length; i++){
+  j_listString = j_listString + `<li>${title[i]}</li>`
 }
 
-const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
-const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
-const songsString = ul_function(linData.career.notableSongs, "Notable Songs");
-const awardsString = ul_function(linData.career.awards, "Awards Conferred")
+ return `<div><h2>${header}</h2><ul>${j_listString}</ul></div>` 
+}
 
-console.log(musicalsString, songsString, songsString, awardsString)
-document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
+const img_function = (caption, src, alt, style) => {
+  return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
+}
 
+const h1_function = (h1, style) => {
+  return `<h1>Country of residence: ${h1}</h1>`
+}
 
+const country = h1_function(linData.executiveSummary.countryOfResidence)
+const image = img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "image", "")
+const knownCollabs = ul_function(linData.executiveSummary.knownCollaborations, "Known Collaborations")
+const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List of Aliases");
 
-
-//     executiveSummary: {
-//       knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
-//       image: {
-//         photURL: "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000",
-//         caption: "Lin Manuel Miranda Headshot"
-//       },
-//       listOfAliases: ["Lin", "LMM", "Alexander Hamilton"],
-//       countryOfResidence: "United States"
-//     }
-//   }
-//   extrasReport: {
-//     onlineResources: [
-//         {
-//             name: "Wikipedia",
-//             url: "https://en.wikipedia.org/wiki/Lin-Manuel_Miranda"
-//         },
-//         {
-//             name: "Official Website",
-//             url: "http://www.linmanuel.com/"
-//         },
-//         {
-//             name: "Fan Website",
-//             url: "https://linmiranda.com/"
-//         }
-//     ],
-//     placesToViewWork: [
-//         {
-//             name: "Youtube",
-//             url: ""
-//         },
-//         {
-//             name: "Broadway",
-//             url: ""
-//         }
-//     ],
-//     pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
-
-// }
-// }
-
-
+document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
 
 
