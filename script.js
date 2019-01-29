@@ -165,3 +165,11 @@ for (let i = 0; i < linData.newsfeed.length; i++){
 }
 console.log(newsy)
 document.querySelector("#news-feed").innerHTML= newsy
+
+const personalKids = ul_function(linData.personalLife.family.kids, "Kids");
+const personalPets = ul_function(linData.personalLife.family.pets, "Pets");
+const personalParents = ul_function(linData.personalLife.family.parents, "Parents");
+
+let shortIntroHTML = `Lin Manuel Miranda was born on ${linData.personalLife.birthDate} in ${linData.personalLife.birthLocation}, NY.  He is also a ${linData.personalLife.nationality}.  He is married to ${linData.personalLife.family.spouse}.`
+
+document.querySelector("#personal-life").innerHTML = `<div><H2>${shortIntroHTML}</h2>${personalKids}${personalPets}${personalParents}`
