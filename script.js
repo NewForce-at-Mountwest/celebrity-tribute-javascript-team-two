@@ -92,72 +92,76 @@ const linData = {
  
   }
  }
-    
-    
-    let musicalsHTMLString = "";
-    let rolesHTMLString = "";
-    let songsHTMLString = "";
-    let awardsHTMLString = "";
 
-    for (let i = 0; i < linData.career.MusicalsWritten.length; i++) {
-        musicalsHTMLString = musicalsHTMLString + linData.career.MusicalsWritten[i]
-        console.log(musicalsHTMLString);
-    }
+ let musicalsHTMLString = "";
+   let rolesHTMLString = "";
+   let songsHTMLString = "";
+   let awardsHTMLString = "";
 
-    for (let i = 0; i < linData.career.notableRoles.length; i++) {
-            rolesHTMLString = rolesHTMLString + linData.career.notableRoles[i]
-            console.log(rolesHTMLString);
-    }
+   for (let i = 0; i < linData.career.MusicalsWritten.length; i++) {
+       musicalsHTMLString = musicalsHTMLString + linData.career.MusicalsWritten[i]
+       console.log(musicalsHTMLString);
+   }
 
-    for (let i = 0; i < linData.career.notableSongs.length; i++) {
-            songsHTMLString = songsHTMLString + linData.career.notableSongs[i]
-            console.log(songsHTMLString);
-    }
+   for (let i = 0; i < linData.career.notableRoles.length; i++) {
+           rolesHTMLString = rolesHTMLString + linData.career.notableRoles[i]
+           console.log(rolesHTMLString);
+   }
 
-    for (let i = 0; i < linData.career.awards.length; i++) {
-            awardsHTMLString = awardsHTMLString + linData.career.awards[i]
-            console.log(awardsHTMLString);
-    }
-    
-    const careerHTMLString = `<h2 class="career-intro">${linData.career.shortIntro}</h2> <ul class="career-musicals"${musicalsHTMLString}</ul> <ul class="career-roles">${rolesHTMLString}</ul> <ul class="career-songs">${songsHTMLString}</ul> <ul class="career-awards">${awardsHTMLString}</ul>`
-    console.log (careerHTMLString) 
+   for (let i = 0; i < linData.career.notableSongs.length; i++) {
+           songsHTMLString = songsHTMLString + linData.career.notableSongs[i]
+           console.log(songsHTMLString);
+   }
+
+   for (let i = 0; i < linData.career.awards.length; i++) {
+           awardsHTMLString = awardsHTMLString + linData.career.awards[i]
+           console.log(awardsHTMLString);
+   }
+
+   const careerHTMLString = `<h2 class="career-intro">${linData.career.shortIntro}</h2> <ul class="career-musicals"${musicalsHTMLString}</ul> <ul class="career-roles">${rolesHTMLString}</ul> <ul class="career-songs">${songsHTMLString}</ul> <ul class="career-awards">${awardsHTMLString}</ul>`
+   console.log (careerHTMLString)
 
 document.querySelector("#career").innerHTML = careerHTMLString;
 
-let htmlString = "";
 
 const ul_function = (title, header, style) => {
- 
-let listString = "";
-for (let i = 0; i < title.length; i++){
-  listString = listString + `<li>${title[i]}</li>`
-  console.log(listString)
 
+ let j_listString = "";
+ for (let i = 0; i < title.length; i++){
+ j_listString = j_listString + `<li>${title[i]}</li>`
 }
- return `<div><h2>${header}</h2><ul>${listString}</ul></div>` 
+
+return `<div><h2>${header}</h2><ul>${j_listString}</ul></div>`
 }
-//career
+
+const img_function = (caption, src, alt, style) => {
+ return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
+}
+
+const h1_function = (h1, style) => {
+ return `<h1>Country of residence: ${h1}</h1>`
+}
+
+const country = h1_function(linData.executiveSummary.countryOfResidence)
+const image = img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "image", "")
+const knownCollabs = ul_function(linData.executiveSummary.knownCollaborations, "Known Collaborations")
+const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List of Aliases");
+
+document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
+
+
+
 const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
 const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
 const songsString = ul_function(linData.career.notableSongs, "Notable Songs");
 const awardsString = ul_function(linData.career.awards, "Awards Conferred")
 
-//personal
-
-const personalKids = ul_function(linData.personalLife.family.kids, "Kids");
-const personalPets = ul_function(linData.personalLife.family.pets, "Pets");
-const personalParents = ul_function(linData.personalLife.family.parents, "Parents");
-
-let shortIntroHTML = `Lin Manuel Miranda was born on ${linData.personalLife.birthDate} in ${linData.personalLife.birthLocation}, NY.  He is also a ${linData.personalLife.nationality}.  He is married to ${linData.personalLife.family.spouse}.`
-
-
-
-
 console.log(musicalsString, songsString, songsString, awardsString)
 document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
 
-document.querySelector("#personal-life").innerHTML = `<div><H2>${shortIntroHTML}</h2>${personalKids}${personalPets}${personalParents}${awardsString}`
-
-
-
-
+let newsy = ""
+for (let i = 0; i < linData.newsfeed.length; i++){
+   newsy = newsy + `<a href="${linData.newsfeed[i].url}"><li>${linData.newsfeed[i].title}   |   ${linData.newsfeed[i].date}</li>`
+}
+console.log(newsy)
+document.querySelector("#news-feed").innerHTML= newsy
