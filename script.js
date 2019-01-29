@@ -108,8 +108,10 @@ const j_ul_function = (title, header, style) => {
  return `<div><h2>${header}</h2><ul>${j_listString}</ul></div>` 
 }
 
+
 // Charles' Function
 const ul_function = (title, header, style) => {
+
   // return `<ul class ="${style}">${title}</ul>`
 let listString = "";
 for (let i = 0; i < title.length; i++){
@@ -142,6 +144,7 @@ const aliasesString = j_ul_function(linData.executiveSummary.listOfAliases, "Lis
 
 document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
 
+
 // Russell's Function Calls
 const personalKids = ul_function(linData.personalLife.family.kids, "Kids");
 const personalPets = ul_function(linData.personalLife.family.pets, "Pets");
@@ -159,7 +162,6 @@ const awardsString = ul_function(linData.career.awards, "Awards Conferred")
 
 console.log(musicalsString, rolesString, songsString, awardsString)
 document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
-
 
 //Alex's functions below this line  ¯\_(ツ)_/¯
 
