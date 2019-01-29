@@ -97,7 +97,9 @@ const linData = {
   }
 }
 
-// Josh's Function
+
+
+// Josh's Functions
 const j_ul_function = (title, header, style) => {
 
   let j_listString = "";
@@ -108,6 +110,14 @@ const j_ul_function = (title, header, style) => {
  return `<div><h2>${header}</h2><ul>${j_listString}</ul></div>` 
 }
 
+const img_function = (caption, src, alt, style) => {
+  return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
+}
+
+// Russell's Function
+const h1_function = (h1, style) => {
+  return `<h1>Country of residence: ${h1}</h1>`
+}
 
 // Charles' Function
 const ul_function = (title, header, style) => {
@@ -118,9 +128,8 @@ for (let i = 0; i < title.length; i++){
   listString = listString + `<li>${title[i]}</li>`
   console.log(listString)
 }
-return `<div><h3>${header}</h3><ul>${listString}</ul></div>` 
+return `<div><h3>${header}</h3><ul>${listString}</ul></div>`
 }
-
 // Connor's Function
 let newsy = ""
 for (let i = 0; i < linData.newsfeed.length; i++){
@@ -130,17 +139,10 @@ console.log(newsy)
 document.querySelector("#news-feed").innerHTML= newsy
 
 // Josh's Function Calls
-const img_function = (caption, src, alt, style) => {
-  return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
-}
-
-const h1_function = (h1, style) => {
-  return `<h1>Country of residence: ${h1}</h1>`
-}
 const country = h1_function(linData.executiveSummary.countryOfResidence)
 const image = img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "image", "")
-const knownCollabs = j_ul_function(linData.executiveSummary.knownCollaborations, "Known Collaborations")
-const aliasesString = j_ul_function(linData.executiveSummary.listOfAliases, "List of Aliases");
+const knownCollabs = ul_function(linData.executiveSummary.knownCollaborations, "Known Collaborations")
+const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List of Aliases");
 
 document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
 
@@ -246,3 +248,4 @@ const h1 = (title) => {
  
  
  //Alex's functions above this line ¯\_(ツ)_/¯
+
