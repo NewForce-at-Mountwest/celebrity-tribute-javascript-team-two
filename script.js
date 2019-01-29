@@ -98,7 +98,8 @@ const linData = {
 }
 
 
-const ul_function = (title, header, style) => {
+// Josh's Functions
+const j_ul_function = (title, header, style) => {
 
   let j_listString = "";
   for (let i = 0; i < title.length; i++){
@@ -112,8 +113,10 @@ const img_function = (caption, src, alt, style) => {
   return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
 }
 
+// Russell's Function
 const h1_function = (h1, style) => {
   return `<h1>Country of residence: ${h1}</h1>`
+}
 
 const country = h1_function(linData.executiveSummary.countryOfResidence)
 const image = img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "image", "")
@@ -122,15 +125,24 @@ const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List 
 
 document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
 
-
+// Charles' Function
 const ul_function = (title, header, style) => {
+
   // return `<ul class ="${style}">${title}</ul>`
 let listString = "";
 for (let i = 0; i < title.length; i++){
   listString = listString + `<li>${title[i]}</li>`
   console.log(listString)
-}
-return `<div><h3>${header}</h3><ul>${listString}</ul></div>` 
+
+    let musicalsHTMLString = "";
+    let rolesHTMLString = "";
+    let songsHTMLString = "";
+    let awardsHTMLString = "";
+
+    for (let i = 0; i < linData.career.MusicalsWritten.length; i++) {
+        musicalsHTMLString = musicalsHTMLString + linData.career.MusicalsWritten[i]
+        console.log(musicalsHTMLString);
+    }
 
 const musicalsString = ul_function(linData.career.MusicalsWritten, "Music Written");
 const rolesString = ul_function(linData.career.notableRoles, "Notable Roles");
@@ -140,10 +152,36 @@ const awardsString = ul_function(linData.career.awards, "Awards Conferred")
 console.log(musicalsString, rolesString, songsString, awardsString)
 document.querySelector("#career").innerHTML = `<div><H2>${linData.career.shortIntro}</h2>${musicalsString}${rolesString}${songsString}${awardsString}`
 
+  let j_listString = "";
+  for (let i = 0; i < title.length; i++){
+  j_listString = j_listString + `<li>${title[i]}</li>`
+}
 
+ return `<div><h2>${header}</h2><ul>${j_listString}</ul></div>` 
+}
+
+// Connor's Function
 let newsy = ""
 for (let i = 0; i < linData.newsfeed.length; i++){
     newsy = newsy + `<a href="${linData.newsfeed[i].url}"><li>${linData.newsfeed[i].title}   |   ${linData.newsfeed[i].date}</li>`
 }
 console.log(newsy)
 document.querySelector("#news-feed").innerHTML= newsy
+
+// const img_function = (caption, src, alt, style) => {
+//   return `<h1>${caption}</h1><img src="${src}"class=${style} alt="${alt}">`
+// }
+
+// const h1_function = (h1, style) => {
+//   return `<h1>Country of residence: ${h1}</h1>`
+
+// }
+// return `<div><h3>${header}</h3><ul>${listString}</ul></div>` 
+
+// const country = h1_function(linData.executiveSummary.countryOfResidence)
+// const image = img_function(linData.executiveSummary.image.caption, linData.executiveSummary.image.photURL, "image", "")
+// const knownCollabs = ul_function(linData.executiveSummary.knownCollaborations, "Known Collaborations")
+// const aliasesString = ul_function(linData.executiveSummary.listOfAliases, "List of Aliases");
+
+// document.querySelector("#executive-summary").innerHTML = `${country}${knownCollabs}${aliasesString}${image}`
+}
