@@ -37,4 +37,7 @@ body {
     width:100vw;
     z-index:-1;
 }
-    
+
+section {
+    padding-top:1rem;
+}
